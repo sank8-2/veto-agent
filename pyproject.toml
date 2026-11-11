@@ -1,0 +1,24 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "veto-agent"
+version = "0.1.0"
+description = "A GitHub agent that reads freely but stops for out-of-band approval before it closes anything"
+readme = "README.md"
+requires-python = ">=3.11"
+license = { text = "MIT" }
+dependencies = ["PyJWT[crypto]>=2.8"]
+
+[project.optional-dependencies]
+dev = ["pytest>=8"]
+
+[project.scripts]
+veto-agent = "veto_agent.__main__:main"
+
+[tool.setuptools]
+packages = ["veto_agent"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
